@@ -12,7 +12,7 @@ def produce():
         channel.basic_publish(
             exchange='demo_exchange',
             routing_key='demo_routing_key',
-            body=message,
+            body=message.encode(),
             properties=pika.BasicProperties(delivery_mode=2),  # Persistent messages
         )
         print(f"Producer 2 sent: {message}")
